@@ -3,7 +3,6 @@
 {
   imports = [
     inputs.nixvim.homeModules.nixvim
-    ./../../modules/home-manager/niri.nix
   ];
 
   home.username = "NathanDSanta";
