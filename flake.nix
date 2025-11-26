@@ -9,9 +9,19 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     stylix = {
-	url = "github:danth/stylix";
-	inputs.nixpkg.follows = "nixpkgs";
+	url = "github:nix-community/stylix";
+	inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -26,7 +36,7 @@
         modules = [
           ./hosts/personal/configuration.nix
           inputs.home-manager.nixosModules.default
-	  inputs.stylix.nixosModules.stylix
+          inputs.stylix.nixosModules.stylix
         ];
       };
     };

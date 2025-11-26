@@ -9,6 +9,7 @@
     [ 
       ./hardware-configuration.nix
       inputs.home-manager.nixosModules.default
+      inputs.niri.nixosModules.niri
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -38,10 +39,8 @@
 
   i18n.defaultLocale = "en_US.UTF-8";
 
-  programs.niri = {
-    enable = true;
-  };
-  
+  fonts.packages = [ pkgs.nerd-fonts.jetbrains-mono ];
+
   services.pipewire = {
     enable = true;
     pulse.enable = true;
@@ -53,10 +52,11 @@
 
   users.users.NathanDSanta = {
      isNormalUser = true;
-     extraGroups = [ "NetworkManager" "wheel" ];
+     extraGroups = [ "networkmanager" "wheel" ];
    };
 
    home-manager = {
+     useGlobalPkgs = true;
      extraSpecialArgs = {inherit inputs;};
      users = {
 	"NathanDSanta" = import ./home.nix;
@@ -64,16 +64,31 @@
    };
 
    stylix = {
+     enable = true;
+     autoEnable = true;
      base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+     fonts = {
+       monospace = { 
+         name = "JetBrains Mono Nerd Font";
+       };
+     };
+   };
+
+   programs.niri = {
+     enable = true;
    };
 
    environment.systemPackages = with pkgs; [
-      neovim 
+      vim
       chromium
       sleek-grub-theme
-      alacritty
       foot
+      mako
+      waybar
+      swaybg
+      swayidle
       git
+      pavucontrol
       xdg-desktop-portal-hyprland
    ];
 
