@@ -17,6 +17,7 @@
 
   home.packages = [
     pkgs.hello
+    pkgs.fzf
   ];
 
   home.file = {

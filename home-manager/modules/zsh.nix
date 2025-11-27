@@ -5,12 +5,28 @@
       enable = true;
       oh-my-zsh = {
         enable = true;
-        plugins = [
-	  pkgs.zsh-autosuggestions
-	  pkgs.zsh-autocomplete
-	  pkgs.zsk-syntax-highlighting
-        ];
+	plugins = [
+	  "sudo"
+	];
       };
+      plugins = [
+	{
+	  name = "zsh-autosuggestions"; 
+	  src = pkgs.zsh-autosuggestions;
+	}
+	{
+	  name = "zsh-autocomplete"; 
+	  src = pkgs.zsh-autocomplete;
+	}
+	{
+	  name = "zsh-syntax-highlighting"; 
+	  src = pkgs.zsh-syntax-highlighting;
+	}
+	{
+	  name = "fzf-tab"; 
+	  src = pkgs.zsh-fzf-tab;
+	}
+      ];
 
       
       shellAliases = {
