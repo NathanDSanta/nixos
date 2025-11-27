@@ -51,7 +51,6 @@
       home-manager
       vim
       chromium
-      foot
       mako
       waybar
       swaybg

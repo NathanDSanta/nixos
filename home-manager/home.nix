@@ -8,7 +8,6 @@
     ./modules/themes.nix
     inputs.niri.homeModules.niri
     inputs.nixvim.homeModules.nixvim
-    inputs.stylix.homeModules.stylix
   ];
 
   home.username = "NathanDSanta";
@@ -19,6 +18,7 @@
   home.packages = [
     pkgs.hello
     pkgs.fzf
+    pkgs.base16-schemes
   ];
 
   home.file = {

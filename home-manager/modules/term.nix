@@ -8,9 +8,6 @@
 	settings = {
 	  main = {
 	    term = "xterm-256color";
-
-	    font = "JetBrainsMono Nerd Font Mono:size=16";
-	    dpi-aware = yes;
 	  };
 	};
       };
