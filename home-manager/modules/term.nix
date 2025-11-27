@@ -36,6 +36,14 @@
         enable = true;
 	enableZshIntegration = true;
       };
+
+      eza = {
+        enable = true;
+	enableZshIntegration = true;
+	git = true;
+	icons = "auto";
+	colors = "auto";
+      };
     };
 
 }

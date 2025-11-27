@@ -4,7 +4,7 @@
 
   imports = [
     ./modules/niri.nix	
-    ./modules/zsh.nix
+    ./modules/term.nix
     inputs.niri.homeModules.niri
     inputs.nixvim.homeModules.nixvim
     inputs.stylix.homeModules.stylix
