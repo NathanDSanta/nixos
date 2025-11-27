@@ -8,13 +8,10 @@
   imports =
     [ 
       ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.home-manager
       inputs.niri.nixosModules.niri
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  nixpkgs.config.allowUnfree = true;
 
   boot.loader.grub = {
     enable = true;
@@ -57,30 +54,23 @@
      extraGroups = [ "networkmanager" "wheel" ];
    };
 
-   home-manager = {
-     useGlobalPkgs = true;
-     extraSpecialArgs = {inherit inputs;};
-     users = {
-	"NathanDSanta" = import ./home.nix;
-     };
-   };
-
-   stylix = {
-     enable = true;
-     autoEnable = true;
-     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
-     fonts = {
-       monospace = { 
-         name = "JetBrains Mono Nerd Font";
-       };
-     };
-   };
+#   stylix = {
+#     enable = true;
+#     autoEnable = true;
+#     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+#     fonts = {
+#       monospace = { 
+#         name = "JetBrains Mono Nerd Font";
+#       };
+#     };
+#   };
 
    programs.niri = {
      enable = true;
    };
 
    environment.systemPackages = with pkgs; [
+      home-manager
       vim
       chromium
       sleek-grub-theme

@@ -1,0 +1,34 @@
+{
+  description = "NixOS config flake";
+
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
+
+  outputs = { self, ... }@inputs: 
+    let
+      system = "x86_64-linux";
+      pkgs = import inputs.nixpkgs {
+        inherit system;
+	config = {
+	  allowUnfree = true;
+	};
+      };
+    in
+    {
+      nixosConfigurations = {
+        personal = inputs.nixpkgs.lib.nixosSystem {
+          specialArgs = {inherit inputs system;};
+          modules = [
+            ./nixos/configuration.nix
+          ];
+	};
+      };
+
+    };
+}

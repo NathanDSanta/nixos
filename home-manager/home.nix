@@ -15,7 +15,6 @@ in
 
   home.packages = [
     pkgs.hello
-    pkgs.modrinth-app
   ];
 
   home.file = {
