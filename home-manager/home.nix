@@ -4,9 +4,6 @@ let
   actions = config.lib.niri.actions;
 in
 {
-  imports = [
-    inputs.nixvim.homeModules.nixvim
-  ];
 
   home.username = "NathanDSanta";
   home.homeDirectory = "/home/NathanDSanta";

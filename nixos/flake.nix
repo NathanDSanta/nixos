@@ -25,7 +25,7 @@
         personal = inputs.nixpkgs.lib.nixosSystem {
           specialArgs = {inherit inputs system;};
           modules = [
-            ./nixos/configuration.nix
+            ./configuration.nix
           ];
 	};
       };

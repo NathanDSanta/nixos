@@ -9,6 +9,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -34,9 +39,10 @@
       homeConfigurations = {
         NathanDSanta = inputs.home-manager.lib.homeManagerConfiguration {
  	  inherit pkgs;
-
 	  modules = [
 	    ./home.nix
+	    inputs.nixvim.homeModules.nixvim
+	    inputs.niri.homeModules.niri
 	  ];
 	};
       }; 
