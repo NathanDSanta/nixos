@@ -8,28 +8,11 @@
   imports =
     [ 
       ./hardware-configuration.nix
+      ./modules/boot.nix
       inputs.niri.nixosModules.niri
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  boot.loader.grub = {
-    enable = true;
-    device = "nodev";
-    efiSupport = true;
-    extraEntries = ''
-      menuentry "Arch Linux" {
-        insmod ext2
-        set root=(hd0,gpt6)
-        linux /boot/vmlinuz-linux root=/dev/nvme0n1p6
-        initrd /boot/initramfs-linux.img
-      }
-    ''; 
-  };
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot/efi";
-
-  boot.blacklistedKernelModules = [ "elan_i2c" ];
 
   networking.hostName = "Nathan-NixOS"; 
   networking.networkmanager.enable = true; 
@@ -52,28 +35,16 @@
   users.users.NathanDSanta = {
      isNormalUser = true;
      extraGroups = [ "networkmanager" "wheel" ];
-   };
+  };
 
-#   stylix = {
-#     enable = true;
-#     autoEnable = true;
-#     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
-#     fonts = {
-#       monospace = { 
-#         name = "JetBrains Mono Nerd Font";
-#       };
-#     };
-#   };
-
-   programs.niri = {
-     enable = true;
-   };
+  programs.niri = {
+    enable = true;
+  };
 
    environment.systemPackages = with pkgs; [
       home-manager
       vim
       chromium
-      sleek-grub-theme
       foot
       mako
       waybar
