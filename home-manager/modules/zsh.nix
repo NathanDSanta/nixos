@@ -7,26 +7,12 @@
         enable = true;
 	plugins = [
 	  "sudo"
+	  "zsh-autosuggestions"
+	  "zsh-autocomplete"
+	  "zsh-syntax-highlighting"
+	  "fzf-tab"
 	];
       };
-      plugins = [
-	{
-	  name = "zsh-autosuggestions"; 
-	  src = pkgs.zsh-autosuggestions;
-	}
-	{
-	  name = "zsh-autocomplete"; 
-	  src = pkgs.zsh-autocomplete;
-	}
-	{
-	  name = "zsh-syntax-highlighting"; 
-	  src = pkgs.zsh-syntax-highlighting;
-	}
-	{
-	  name = "fzf-tab"; 
-	  src = pkgs.zsh-fzf-tab;
-	}
-      ];
 
       
       shellAliases = {
@@ -34,4 +20,11 @@
         rebuild-home = "home-manager switch --flake ~/.nixos/home-manager";
       };
     };
+
+    home.packages = with pkgs; [
+      zsh-autosuggestions
+      zsh-autocomplete
+      zsh-syntax-highlighting
+      zsh-fzf-tab
+    ];
 }

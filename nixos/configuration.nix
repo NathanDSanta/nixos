@@ -34,11 +34,13 @@
 
   users.users.NathanDSanta = {
      isNormalUser = true;
+     shell = pkgs.zsh;
      extraGroups = [ "networkmanager" "wheel" ];
   };
 
-  programs.niri = {
-    enable = true;
+  programs = {
+    niri.enable = true;
+    zsh.enable = true;
   };
 
    environment.systemPackages = with pkgs; [

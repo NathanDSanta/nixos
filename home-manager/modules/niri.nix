@@ -51,6 +51,7 @@ in
     };
 
     binds = {
+      "Mod+Shift+Slash".action = actions.show-hotkey-overlay;
       "Mod+Shift+E".action.quit.skip-confirmation = false;
       "Mod+Return" = {
         hotkey-overlay.title = "Open Terminal: foot";
@@ -62,6 +63,7 @@ in
       "Mod+Up".action = actions.focus-window-or-workspace-up;
 
       "Mod+O".action = actions.toggle-overview;
+      "Mod+F".action = actions.maximize-column;
       "Mod+C".action.spawn = "chromium";
     };
   };
