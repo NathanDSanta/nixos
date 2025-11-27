@@ -4,6 +4,7 @@
 
   imports = [
     ./modules/niri.nix	
+    ./modules/zsh.nix
     inputs.niri.homeModules.niri
     inputs.nixvim.homeModules.nixvim
     inputs.stylix.homeModules.stylix
@@ -29,18 +30,6 @@
 
     nixvim = {
       enable = true;
-    };
-
-    zsh = {
-      enable = true;
-      enableCompletion = true;
-      autosuggestion.enable = true;
-      syntaxHighlighting.enable = true;
-      
-      shellAliases = {
-        rebuild-nix = "sudo nixos-rebuid switch --flake ~/.nixos/nixos#personal";
-        rebuild-home = "home-manager switch --flake ~/.nixos/home-manager";
-      };
     };
   };
 
