@@ -3,6 +3,18 @@
 {
 
     programs = {
+      foot = {
+        enable = true;
+	settings = {
+	  main = {
+	    term = "xterm-256color";
+
+	    font = "JetBrainsMono Nerd Font Mono:size=16";
+	    dpi-aware = yes;
+	  };
+	};
+      };
+
       zsh = {
         enable = true;
         enableCompletion = true;
