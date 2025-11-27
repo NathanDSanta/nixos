@@ -10,13 +10,13 @@
         syntaxHighlighting.enable = true;
         oh-my-zsh = {
           enable = true;
-	  eplugins = [
+	  plugins = [
 	    "sudo"
 	  ];
         };
 
       
-        eshellAliases = {
+        shellAliases = {
           rebuild-nix = "sudo nixos-rebuild switch --flake ~/.nixos/nixos#personal";
           rebuild-home = "home-manager switch --flake ~/.nixos/home-manager";
         };
