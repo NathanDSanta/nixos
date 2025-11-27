@@ -1,12 +1,9 @@
 { config, pkgs, inputs, ... }:
 
-let
-  actions = config.lib.niri.actions;
-in
 {
 
   imports = [
-    ./apps/niri.nix	
+    ./modules/niri.nix	
   ];
 
   home.username = "NathanDSanta";
