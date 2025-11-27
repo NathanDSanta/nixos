@@ -4,6 +4,9 @@
 
   imports = [
     ./modules/niri.nix	
+    inputs.niri.homeModules.niri
+    inputs.nixvim.homeModules.nixvim
+    inputs.stylix.homeModules.stylix
   ];
 
   home.username = "NathanDSanta";
@@ -33,7 +36,24 @@
       enableCompletion = true;
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
+      
+      shellAliases = {
+        rebuild-nix = "sudo nixos-rebuid switch --flake ~/.nixos/nixos#personal";
+        rebuild-home = "home-manager switch --flake ~/.nixos/home-manager";
+      };
     };
   };
+
+   stylix = {
+     enable = true;
+     autoEnable = true;
+     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+     fonts = {
+       monospace = { 
+         name = "JetBrains Mono Nerd Font";
+       };
+     };
+   };
+
 
 }
