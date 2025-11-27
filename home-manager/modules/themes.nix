@@ -1,6 +1,17 @@
 {config, pkgs, inputs, ...}:
 
 {
+   gtk = {
+     enable = true;
+     theme = {
+       name = "Catppuccin-mocha";
+       package = pkgs.catppuccin-gtk override{
+         variant = "mocha";
+	 accents = "mauve";
+       };
+     };
+   };  
+
    stylix = {
      enable = true;
      autoEnable = true;
