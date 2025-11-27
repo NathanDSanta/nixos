@@ -5,6 +5,7 @@
   imports = [
     ./modules/niri.nix	
     ./modules/term.nix
+    ./modules/themes.nix
     inputs.niri.homeModules.niri
     inputs.nixvim.homeModules.nixvim
     inputs.stylix.homeModules.stylix
@@ -35,16 +36,6 @@
 
   };
 
-   stylix = {
-     enable = true;
-     autoEnable = true;
-     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
-     fonts = {
-       monospace = { 
-         name = "JetBrains Mono Nerd Font";
-       };
-     };
-   };
 
 
 }
