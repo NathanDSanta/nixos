@@ -1,30 +1,41 @@
 {config, pkgs, inputs, ...}:
 
 {
-    programs.zsh = {
-      enable = true;
-      oh-my-zsh = {
+
+    programs = {
+      zsh = {
         enable = true;
-	plugins = [
-	  "sudo"
-	  "zsh-autosuggestions"
-	  "zsh-autocomplete"
-	  "zsh-syntax-highlighting"
-	  "fzf-tab"
-	];
-      };
+        enableCompletion = true;
+        autosuggestion.enable = true;
+        syntaxHighlighting.enable = true;
+        oh-my-zsh = {
+          enable = true;
+	  eplugins = [
+	    "sudo"
+	  ];
+        };
 
       
-      shellAliases = {
-        rebuild-nix = "sudo nixos-rebuild switch --flake ~/.nixos/nixos#personal";
-        rebuild-home = "home-manager switch --flake ~/.nixos/home-manager";
+        eshellAliases = {
+          rebuild-nix = "sudo nixos-rebuild switch --flake ~/.nixos/nixos#personal";
+          rebuild-home = "home-manager switch --flake ~/.nixos/home-manager";
+        };
+      };
+    
+      oh-my-posh = {
+        enable = true;
+	enableZshIntegration = true;
+      };
+
+      fzf = {
+        enable = true;
+	enableZshIntegration = true;
+      };
+
+      zoxide = {
+        enable = true;
+	enableZshIntegration = true;
       };
     };
 
-    home.packages = with pkgs; [
-      zsh-autosuggestions
-      zsh-autocomplete
-      zsh-syntax-highlighting
-      zsh-fzf-tab
-    ];
 }

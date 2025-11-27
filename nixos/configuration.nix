@@ -25,8 +25,12 @@
 
   services.pipewire = {
     enable = true;
+    alsa.enable = true;
     pulse.enable = true;
   };
+
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
 
   services.displayManager.ly.enable = true;
 
@@ -54,7 +58,7 @@
       swayidle
       git
       pavucontrol
-      xdg-desktop-portal-hyprland
+      xdg-desktop-portal-gnome
    ];
 
   
