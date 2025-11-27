@@ -5,6 +5,10 @@ let
 in
 {
 
+  imports = [
+    ./apps/niri.nix	
+  ];
+
   home.username = "NathanDSanta";
   home.homeDirectory = "/home/NathanDSanta";
 
@@ -32,24 +36,6 @@ in
       enableCompletion = true;
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
-    };
-  };
-
-  programs.niri.settings = {
-    prefer-no-csd = true;
-    binds = {
-      "Mod+Shift+E".action.quit.skip-confirmation = false;
-      "Mod+Return" = {
-        hotkey-overlay.title = "Open Terminal: foot";
-        action.spawn = "foot";
-      };
-      "Mod+Left".action = actions.focus-column-or-monitor-left;
-      "Mod+Right".action = actions.focus-column-or-monitor-right;
-      "Mod+Down".action = actions.focus-window-or-workspace-down;
-      "Mod+Up".action = actions.focus-window-or-workspace-up;
-
-      "Mod+O".action = actions.toggle-overview;
-      "Mod+C".action.spawn = "chromium";
     };
   };
 
