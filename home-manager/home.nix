@@ -1,12 +1,18 @@
-{ config, pkgs, inputs, ... }:
+{ config,lib, pkgs, inputs, ... }:
 
+let
+  b = builtins;
+  modules =
+    b.map (name: ./modules/${name})
+      (b.filter (name: lib.strings.hasSuffix ".nix" name)
+        (b.attrNames (b.readDir ./modules)));
+in
 {
 
   imports = [
-    ./modules
     inputs.niri.homeModules.niri
     inputs.nixvim.homeModules.nixvim
-  ];
+  ] ++ modules;
 
   home.username = "NathanDSanta";
   home.homeDirectory = "/home/NathanDSanta";
@@ -21,6 +27,7 @@
   };
 
   home.sessionVariables = {
+    NH_HOME_FLAKE = "/home/NathanDSanta/.nixos/home-manager/";
   };
 
   programs = {

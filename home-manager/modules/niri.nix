@@ -6,6 +6,8 @@ in
 {
   programs.niri.settings = {
     prefer-no-csd = true;
+
+    spawn-at-startup = [{ command = [ "noctalia-shell" ]; }];
     
     outputs = {
       eDP-1 = {
@@ -55,7 +57,7 @@ in
       "Mod+Shift+E".action.quit.skip-confirmation = false;
       "Mod+Return" = {
         hotkey-overlay.title = "Open Terminal: foot";
-        action.spawn = "foot";
+        action.spawn = "ghostty";
       };
       "Mod+Left".action = actions.focus-column-or-monitor-left;
       "Mod+Right".action = actions.focus-column-or-monitor-right;

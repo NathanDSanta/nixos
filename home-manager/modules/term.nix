@@ -2,12 +2,12 @@
 
 {
 
-    home.packages = with pkgs [
+    home.packages = with pkgs; [
       fzf
     ];
 
     programs = {
-      foot = {
+      alacritty = {
         enable = true;
       };
 
@@ -43,9 +43,6 @@
 
       
         shellAliases = {
-          # rebuilding
-	  rebuild-nix = "sudo nixos-rebuild switch --flake ~/.nixos/nixos#personal";
-          rebuild-home = "home-manager switch --flake ~/.nixos/home-manager";
 	  
 	  # zoxide
 	  cd = "z";

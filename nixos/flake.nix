@@ -22,7 +22,7 @@
     in
     {
       nixosConfigurations = {
-        personal = inputs.nixpkgs.lib.nixosSystem {
+        Nathan-NixOS = inputs.nixpkgs.lib.nixosSystem {
           specialArgs = {inherit inputs system;};
           modules = [
             ./configuration.nix

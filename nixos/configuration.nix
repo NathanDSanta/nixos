@@ -21,20 +21,36 @@
 
   i18n.defaultLocale = "en_US.UTF-8";
 
-  fonts.packages = [ pkgs.nerd-fonts.jetbrains-mono ];
+  fonts = {
+    packages = with pkgs; [ pkgs.nerd-fonts.jetbrains-mono ];
+    fontconfig = {
+      enable = true;
+      defaultFonts = {
+        monospace = [ "JetBrainsMono Nerd Font" ];
+      };
+    };
+  };
 
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    pulse.enable = true;
+  services = {
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      pulse.enable = true;
+    };
+
+    blueman.enable = true;
+
+    displayManager.ly.enable = true;
+
+    libinput.enable = true;
+
+    power-profiles-daemon.enable = true;
+
+    upower.enable = true;
+
   };
 
   hardware.bluetooth.enable = true;
-  services.blueman.enable = true;
-
-  services.displayManager.ly.enable = true;
-
-  services.libinput.enable = true;
 
   users.users.NathanDSanta = {
      isNormalUser = true;
@@ -45,21 +61,33 @@
   programs = {
     niri.enable = true;
     zsh.enable = true;
+    
+    nh = {
+      enable = true;
+      clean.enable = true;
+      clean.extraArgs = "--keep-since 4d --keep 3";
+    };
   };
 
-   environment.systemPackages = with pkgs; [
-      home-manager
-      vim
-      chromium
-      mako
-      waybar
-      swaybg
-      swayidle
-      git
-      pavucontrol
-      xdg-desktop-portal-gnome
-   ];
+  environment = {
+    systemPackages = with pkgs; [
+       home-manager
+       vim
+       nerd-fonts.jetbrains-mono
+       chromium
+       mako
+       waybar
+       swaybg
+       swayidle
+       git
+       pavucontrol
+       xdg-desktop-portal-gnome
+    ];
 
+    variables = {
+      NH_FLAKE = "/home/NathanDSanta/.nixos/nixos";
+    };
+  };
   
 
   system.stateVersion = "25.05"; # Did you read the comment?
