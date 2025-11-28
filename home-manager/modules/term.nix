@@ -26,9 +26,19 @@
 
       
         shellAliases = {
-          rebuild-nix = "sudo nixos-rebuild switch --flake ~/.nixos/nixos#personal";
+          # rebuilding
+	  rebuild-nix = "sudo nixos-rebuild switch --flake ~/.nixos/nixos#personal";
           rebuild-home = "home-manager switch --flake ~/.nixos/home-manager";
-        };
+	  
+	  # zoxide
+	  cd = "z";
+
+	  # git
+	  ga = "git add";
+	  gc = "git commit";
+	  gpl = "git pull";
+	  gp = "git push";
+	};
       };
     
       oh-my-posh = {
