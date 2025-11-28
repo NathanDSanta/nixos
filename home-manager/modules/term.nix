@@ -2,9 +2,31 @@
 
 {
 
+    home.packages = with pkgs [
+      fzf
+    ];
+
     programs = {
       foot = {
         enable = true;
+      };
+
+      fzf = {
+        enable = true;
+	enableZshIntegration = true;
+      };
+
+      zoxide = {
+        enable = true;
+	enableZshIntegration = true;
+      };
+
+      eza = {
+        enable = true;
+	enableZshIntegration = true;
+	git = true;
+	icons = "auto";
+	colors = "auto";
       };
 
       zsh = {
@@ -150,23 +172,6 @@
 	};
       };
 
-      fzf = {
-        enable = true;
-	enableZshIntegration = true;
-      };
-
-      zoxide = {
-        enable = true;
-	enableZshIntegration = true;
-      };
-
-      eza = {
-        enable = true;
-	enableZshIntegration = true;
-	git = true;
-	icons = "auto";
-	colors = "auto";
-      };
     };
 
 }

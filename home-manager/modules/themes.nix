@@ -5,6 +5,13 @@
     inputs.stylix.homeModules.stylix
   ];
 
+  home.packages = with pkgs [
+    base16-schemes
+    nerd-fonts.jetbrains-mono
+    tela-circle-icon-theme
+    catppuccin-cursor.mochaDark
+  ];
+
    stylix = {
      enable = true;
      autoEnable = true;
@@ -12,6 +19,7 @@
      image = ./space.jpg;
      
      cursor = {
+       enable = true;
        name = "catppuccin-cursors";
        package = pkgs.catppuccin-cursors.mochaDark; 
        size = 24;
@@ -29,9 +37,6 @@
          name = "JetBrainsMono Nerd Font Mono";
 	 package = pkgs.nerd-fonts.jetbrains-mono;
        };
-       serif = config.stylix.fonts.monospace;
-       sansSerif = config.stylix.fonts.monospace;
-       emoji = config.stylix.fonts.monospace;
      };
 
      icons = {

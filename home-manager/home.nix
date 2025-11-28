@@ -3,9 +3,7 @@
 {
 
   imports = [
-    ./modules/niri.nix	
-    ./modules/term.nix
-    ./modules/themes.nix
+    ./modules
     inputs.niri.homeModules.niri
     inputs.nixvim.homeModules.nixvim
   ];
@@ -17,8 +15,6 @@
 
   home.packages = with pkgs; [
     fzf
-    base16-schemes
-    nerd-fonts.jetbrains-mono
   ];
 
   home.file = {
