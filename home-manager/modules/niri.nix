@@ -56,8 +56,8 @@ in
       "Mod+Shift+Slash".action = actions.show-hotkey-overlay;
       "Mod+Shift+E".action.quit.skip-confirmation = false;
       "Mod+Return" = {
-        hotkey-overlay.title = "Open Terminal: foot";
-        action.spawn = "ghostty";
+        hotkey-overlay.title = "Open Terminal: alacritty";
+        action.spawn = "alacritty";
       };
       "Mod+Left".action = actions.focus-column-or-monitor-left;
       "Mod+Right".action = actions.focus-column-or-monitor-right;
