@@ -4,16 +4,6 @@
   imports = [
     inputs.stylix.homeModules.stylix
   ];
-#   gtk = {
-#     enable = true;
-#     theme = lib.mkForce {
-#       name = "catppuccin-mocha";
-#       package = pkgs.catppuccin-gtk.override{
-#         variant = "mocha";
-#	 accents = "mauve";
-#       };
-#     };
-#   };  
 
    stylix = {
      enable = true;
@@ -39,6 +29,9 @@
          name = "JetBrainsMono Nerd Font Mono";
 	 package = pkgs.nerd-fonts.jetbrains-mono;
        };
+       serif = config.stylix.fonts.monospace;
+       sansSerif = config.stylix.fonts.monospace;
+       emoji = config.stylix.fonts.monospace;
      };
 
      icons = {

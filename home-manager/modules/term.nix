@@ -5,11 +5,6 @@
     programs = {
       foot = {
         enable = true;
-	settings = {
-	  main = {
-	    term = "xterm-256color";
-	  };
-	};
       };
 
       zsh = {
@@ -44,6 +39,115 @@
       oh-my-posh = {
         enable = true;
 	enableZshIntegration = true;
+	settings = {
+	  "$schema" = "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json";
+	  version = 3;
+          blocks = [{
+	    newline = true;
+	    type = "prompt";
+	    alignment = "left";
+	    segments = [{
+	      type = "os";
+	      style = "plain";
+	      background = "transparent";
+	      foreground = "white";
+	    }
+	    {
+              type = "path";
+	      style = "plain";
+	      foreground = "cyan";
+	      background = "transparent";
+	      template = "{{ .Path }}";
+	      properties = {
+	        style = "agnoster";
+	      };
+	    }
+	    {
+              type = "git";
+	      style = "plain";
+	      foreground = "white";
+	      background = "transparent";
+	      template = " on ";
+	    }
+	    {
+	      type = "git";
+	      style = "plain";
+	      background = "transparent";
+	      foreground = "green";
+	    }];
+	  }
+	  {
+	    type = "prompt";
+	    alignment = "right";
+	    overflow = "hide";
+	    segments = [{
+	      type = "text";
+	      style = "plain";
+	      background = "transparent";
+	      foreground = "white";
+	      template = "took ";
+	    }
+	    {
+	      type = "executiontime";
+	      style = "plain";
+	      background = "transparent";
+	      foreground = "blue";
+	      template = "{{ .FormattedMs }}";
+	      properties = {
+		style = "austin";
+		always_enabled = true;
+	      };
+	    }
+	    {
+	      type = "text";
+	      style = "plain";
+	      background = "transparent";
+	      foreground = "white";
+	      template = " at ";
+	    }
+	    {
+	      type = "time";
+	      style = "plain";
+	      background = "transparent";
+	      foreground = "blue";
+	      template = "{{ .CurrentDate | date .Format }}";
+	      properties = {
+		time_format = "15:04";
+	      };
+	    }];
+	  }
+          {
+	    newline = true;
+	    type = "prompt";
+	    alignment = "left";
+	    segments = [{
+	      type = "text";
+	      style = "plain";
+	      foreground = "purple";
+	      template = "  ";
+	    }];
+	  }];
+	  secondary_prompt = {
+	    background = "transparent";
+	    foreground = "blue";
+	    template = "  ";
+	  };
+	  transient_prompt = {
+	    background = "transparent";
+	    foreground = "purple";
+	    template = "  ";
+	  };
+	  valid_line = {
+	    background = "transparent";
+	    foreground = "green";
+	    template = "  ";
+	  };
+	  error_line = {
+	    background = "transparent";
+	    foreground = "red";
+	    template = "  ";
+	  };
+	};
       };
 
       fzf = {

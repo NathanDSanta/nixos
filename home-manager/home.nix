@@ -15,10 +15,10 @@
 
   home.stateVersion = "25.05"; # Please read the comment before changing.
 
-  home.packages = [
-    pkgs.hello
-    pkgs.fzf
-    pkgs.base16-schemes
+  home.packages = with pkgs; [
+    fzf
+    base16-schemes
+    nerd-fonts.jetbrains-mono
   ];
 
   home.file = {
