@@ -74,7 +74,6 @@
        home-manager
        vim
        nerd-fonts.jetbrains-mono
-       chromium
        mako
        waybar
        swaybg

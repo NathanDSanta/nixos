@@ -82,6 +82,20 @@
 	      };
 	    }
 	    {
+	      type = "nix-shell";
+	      style = "plain";
+	      foreground = "white";
+	      background = "transparent";
+	      template = " via ";
+	    }
+	    {
+	      type = "nix-shell";
+	      style = "plain";
+	      foreground = "orange";
+	      background = "transparent";
+	      template = "{{ .Type }}-shell";
+	    }
+	    {
               type = "git";
 	      style = "plain";
 	      foreground = "white";

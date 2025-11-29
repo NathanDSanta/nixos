@@ -52,21 +52,23 @@ in
       };
     };
 
-    binds = {
-      "Mod+Shift+Slash".action = actions.show-hotkey-overlay;
+    binds = with config.lib.niri.actions; {
+      "Mod+Shift+Slash".action = show-hotkey-overlay;
       "Mod+Shift+E".action.quit.skip-confirmation = false;
       "Mod+Return" = {
         hotkey-overlay.title = "Open Terminal: alacritty";
         action.spawn = "alacritty";
       };
-      "Mod+Left".action = actions.focus-column-or-monitor-left;
-      "Mod+Right".action = actions.focus-column-or-monitor-right;
-      "Mod+Down".action = actions.focus-window-or-workspace-down;
-      "Mod+Up".action = actions.focus-window-or-workspace-up;
+      "Mod+Left".action = focus-column-or-monitor-left;
+      "Mod+Right".action = focus-column-or-monitor-right;
+      "Mod+Down".action = focus-window-or-workspace-down;
+      "Mod+Up".action = focus-window-or-workspace-up;
 
-      "Mod+O".action = actions.toggle-overview;
-      "Mod+F".action = actions.maximize-column;
-      "Mod+C".action.spawn = "chromium";
+      "Mod+O".action = toggle-overview;
+      "Mod+F".action = maximize-column;
+      "Mod+C".action = close-window;
+      "Mod+B".action.spawn = "zen";
+      "Mod+R".action.spawn = ["noctalia-shell" "ipc" "call" "launcher" "toggle"];
     };
   };
 }
