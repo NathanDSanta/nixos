@@ -50,6 +50,7 @@
 
   };
 
+  security.rtkit.enable = true;
   hardware.bluetooth.enable = true;
 
   users.users.NathanDSanta = {
@@ -88,7 +89,6 @@
     };
   };
   
-
   system.stateVersion = "25.05"; # Did you read the comment?
 
 }

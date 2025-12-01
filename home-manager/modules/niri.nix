@@ -67,7 +67,7 @@ in
       "Mod+O".action = toggle-overview;
       "Mod+F".action = maximize-column;
       "Mod+C".action = close-window;
-      "Mod+B".action.spawn = "zen";
+      "Mod+B".action.spawn = "chromium";
       "Mod+R".action.spawn = ["noctalia-shell" "ipc" "call" "launcher" "toggle"];
     };
   };
