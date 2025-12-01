@@ -7,7 +7,7 @@
     ];
 
     programs = {
-      alacritty = {
+      kitty = {
         enable = true;
       };
 
@@ -32,15 +32,14 @@
       zsh = {
         enable = true;
         enableCompletion = true;
-        autosuggestion.enable = true;
-        syntaxHighlighting.enable = true;
-        oh-my-zsh = {
-          enable = true;
+	autosuggestion.enable = true;
+	syntaxHighlighting.enable = true;
+	oh-my-zsh = {
+	  enable = true;
 	  plugins = [
 	    "sudo"
 	  ];
-        };
-
+	};
       
         shellAliases = {
 	  
@@ -76,31 +75,24 @@
 	      style = "plain";
 	      foreground = "cyan";
 	      background = "transparent";
-	      template = "{{ .Path }}";
+	      template = " {{ .Path }} ";
 	      properties = {
-	        style = "agnoster";
+	        style = "full";
 	      };
 	    }
 	    {
 	      type = "nix-shell";
 	      style = "plain";
-	      foreground = "white";
+	      foreground = "yellow";
 	      background = "transparent";
-	      template = " via ";
-	    }
-	    {
-	      type = "nix-shell";
-	      style = "plain";
-	      foreground = "orange";
-	      background = "transparent";
-	      template = "{{ .Type }}-shell";
+	      template = "{{ if ne .Type \"unknown\" }}{{ .Type }}{{ end }}";
 	    }
 	    {
               type = "git";
 	      style = "plain";
 	      foreground = "white";
 	      background = "transparent";
-	      template = " on ";
+	      template = " on";
 	    }
 	    {
 	      type = "git";

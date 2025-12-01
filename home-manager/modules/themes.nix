@@ -48,5 +48,7 @@
        package = pkgs.tela-circle-icon-theme;
      };
 
+     targets.zen-browser.profileNames = [ "default" ];
+
    };
 }
