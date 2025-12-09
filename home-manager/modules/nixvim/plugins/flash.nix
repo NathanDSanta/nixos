@@ -2,43 +2,33 @@
 
 {
   programs.nixvim = {
-    enable = true;
-
-    plugins.flash = {
-      enable = true;
-      settings = { };
-    };
+    plugins.flash.enable = true;
 
     keymaps = [
       {
         key = "s";
         mode = [ "n" "x" "o" ];
-        action = ''require("flash").jump()'';
-        desc = "Flash";
+        action = "<cmd>lua require('flash').jump()<CR>";
       }
       {
         key = "S";
         mode = [ "n" "x" "o" ];
-        action = ''require("flash").treesitter()'';
-        desc = "Flash Treesitter";
+        action = "<cmd>lua require('flash').treesitter()<CR>";
       }
       {
         key = "r";
         mode = [ "o" ];
-        action = ''require("flash").remote()'';
-        desc = "Remote Flash";
+        action = "<cmd>lua require('flash').remote()<CR>";
       }
       {
         key = "R";
         mode = [ "o" "x" ];
-        action = ''require("flash").treesitter_search()'';
-        desc = "Treesitter Search";
+        action = "<cmd>lua require('flash').treesitter_search()<CR>";
       }
       {
         key = "<C-s>";
         mode = [ "c" ];
-        action = ''require("flash").toggle()'';
-        desc = "Toggle Flash Search";
+        action = "<cmd>lua require('flash').toggle()<CR>";
       }
     ];
   };

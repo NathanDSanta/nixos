@@ -4,6 +4,8 @@
   programs.nixvim = {
     plugins.treesitter = {
       enable = true;
+      autoLoad = true;
+      folding = true;
 
       grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
         bash
