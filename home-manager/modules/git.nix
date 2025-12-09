@@ -6,8 +6,9 @@
     settings = {
       user = {
         name = "NathanDSanta";
-	mail = "natan.d.santa@gmail.com";
+	email = "natan.d.santa@gmail.com";
       };
+      init.defaultBranch = "main";
     };
   };
 }
