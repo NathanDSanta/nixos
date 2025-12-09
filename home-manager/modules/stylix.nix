@@ -3,6 +3,7 @@
 {
   imports = [
     inputs.stylix.homeModules.stylix
+    inputs.niri.homeModules.stylix
   ];
 
   home.packages = with pkgs; [

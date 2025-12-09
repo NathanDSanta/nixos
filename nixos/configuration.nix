@@ -75,12 +75,6 @@
        home-manager
        vim
        nerd-fonts.jetbrains-mono
-       mako
-       waybar
-       swaybg
-       swayidle
-       git
-       pavucontrol
        xdg-desktop-portal-gnome
     ];
 
@@ -89,7 +83,7 @@
     };
   };
   
-  system.stateVersion = "25.05"; # Did you read the comment?
+  system.stateVersion = "25.11"; # Did you read the comment?
 
 }
 

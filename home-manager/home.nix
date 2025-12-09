@@ -21,6 +21,10 @@ in
 
   home.packages = with pkgs; [
     fzf
+    mako
+    swaybg
+    swayidle
+    pavucontrol
   ];
 
   home.file = {
@@ -31,9 +35,7 @@ in
   };
 
   programs = {
-    home-manager.enable = true;
-
-    nixvim = {
+    home-manager = {
       enable = true;
     };
 
