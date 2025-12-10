@@ -1,6 +1,4 @@
-{config, pkgs, inputs, ...}:
-
-{
+{config, ...}: {
   programs.nixvim = {
     opts = {
       # Line numbers
@@ -17,13 +15,16 @@
       autoindent = true;
       breakindent = true;
 
+      # Folds
+      foldlevel = 99;
+
       # Text wrap
       wrap = false;
 
       # File
       swapfile = false;
       backup = false;
-      undodir = "${builtins.getEnv "HOME"}/.nvim/undodir";
+      undodir = "${config.home.homeDirectory}/.nvim/undodir";
       undofile = true;
 
       # Search
@@ -48,10 +49,9 @@
       splitbelow = true;
 
       # Whitespaces
-      listchars = { trail = "·"; };
+      listchars = {trail = "·";};
 
       sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions";
-
     };
   };
 }

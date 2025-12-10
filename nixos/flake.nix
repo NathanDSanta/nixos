@@ -1,6 +1,5 @@
 {
   description = "NixOS config flake";
-
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
 
@@ -15,25 +14,22 @@
     };
   };
 
-  outputs = { self, ... }@inputs: 
-    let
-      system = "x86_64-linux";
-      pkgs = import inputs.nixpkgs {
-        inherit system;
-	config = {
-	  allowUnfree = true;
-	};
+  outputs = {...} @ inputs: let
+    system = "x86_64-linux";
+    pkgs = import inputs.nixpkgs {
+      inherit system;
+      config = {
+        allowUnfree = true;
       };
-    in
-    {
-      nixosConfigurations = {
-        Nathan-NixOS = inputs.nixpkgs.lib.nixosSystem {
-          specialArgs = {inherit inputs system;};
-          modules = [
-            ./configuration.nix
-          ];
-	};
-      };
-
     };
+  in {
+    nixosConfigurations = {
+      Nathan-NixOS = inputs.nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs system;};
+        modules = [
+          ./configuration.nix
+        ];
+      };
+    };
+  };
 }

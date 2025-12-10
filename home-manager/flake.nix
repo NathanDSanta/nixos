@@ -1,6 +1,5 @@
 {
   description = "NixOS config flake";
-
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
 
@@ -10,8 +9,8 @@
     };
 
     stylix = {
-	url = "github:nix-community/stylix";
-	inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     niri = {
@@ -33,7 +32,7 @@
       url = "github:0xc000022070/zen-browser-flake";
       inputs = {
         nixpkgs.follows = "nixpkgs";
-	home-manager.follows = "home-manager";
+        home-manager.follows = "home-manager";
       };
     };
 
@@ -41,28 +40,25 @@
       url = "github:kaylorben/nixcord";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
   };
 
-  outputs = { self, ... }@inputs: 
-    let
-      system = "x86_64-linux";
-      pkgs = import inputs.nixpkgs {
-        inherit system;
-	config = {
-	  allowUnfree = true;
-	};
+  outputs = {...} @ inputs: let
+    system = "x86_64-linux";
+    pkgs = import inputs.nixpkgs {
+      inherit system;
+      config = {
+        allowUnfree = true;
       };
-    in
-    {
-      homeConfigurations = {
-        NathanDSanta = inputs.home-manager.lib.homeManagerConfiguration {
- 	  inherit pkgs;
-	  extraSpecialArgs = {inherit inputs;};
-	  modules = [
-	    ./home.nix
-	  ];
-	};
-      }; 
     };
+  in {
+    homeConfigurations = {
+      NathanDSanta = inputs.home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        extraSpecialArgs = {inherit inputs;};
+        modules = [
+          ./home.nix
+        ];
+      };
+    };
+  };
 }

@@ -1,32 +1,29 @@
-# Edit this configuration file to define what should be installed on
-# your system. Help is available in the configuration.nix(5) man page, on
-# https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-
-{ config, lib, pkgs, inputs, ... }:
-
 {
-  imports =
-    [ 
-      ./hardware-configuration.nix
-      ./modules/boot.nix
-      inputs.niri.nixosModules.niri
-    ];
+  pkgs,
+  inputs,
+  ...
+}: {
+  imports = [
+    ./hardware-configuration.nix
+    ./modules/boot.nix
+    inputs.niri.nixosModules.niri
+  ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
-  networking.hostName = "Nathan-NixOS"; 
-  networking.networkmanager.enable = true; 
+  networking.hostName = "Nathan-NixOS";
+  networking.networkmanager.enable = true;
 
   time.timeZone = "Europe/Madrid";
 
   i18n.defaultLocale = "en_US.UTF-8";
 
   fonts = {
-    packages = with pkgs; [ pkgs.nerd-fonts.jetbrains-mono ];
+    packages = with pkgs; [pkgs.nerd-fonts.jetbrains-mono];
     fontconfig = {
       enable = true;
       defaultFonts = {
-        monospace = [ "JetBrainsMono Nerd Font" ];
+        monospace = ["JetBrainsMono Nerd Font"];
       };
     };
   };
@@ -47,22 +44,21 @@
     power-profiles-daemon.enable = true;
 
     upower.enable = true;
-
   };
 
   security.rtkit.enable = true;
   hardware.bluetooth.enable = true;
 
   users.users.NathanDSanta = {
-     isNormalUser = true;
-     shell = pkgs.zsh;
-     extraGroups = [ "networkmanager" "wheel" ];
+    isNormalUser = true;
+    shell = pkgs.zsh;
+    extraGroups = ["networkmanager" "wheel"];
   };
 
   programs = {
     niri.enable = true;
     zsh.enable = true;
-    
+
     nh = {
       enable = true;
       clean.enable = true;
@@ -72,18 +68,16 @@
 
   environment = {
     systemPackages = with pkgs; [
-       home-manager
-       vim
-       nerd-fonts.jetbrains-mono
-       xdg-desktop-portal-gnome
+      home-manager
+      vim
+      nerd-fonts.jetbrains-mono
+      xdg-desktop-portal-gnome
     ];
 
     variables = {
       NH_FLAKE = "/home/NathanDSanta/.nixos/nixos";
     };
   };
-  
+
   system.stateVersion = "25.11"; # Did you read the comment?
-
 }
-

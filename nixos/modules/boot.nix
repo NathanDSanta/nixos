@@ -1,6 +1,9 @@
-{config,lib, pkgs, inputs, ...}:
-
-let
+{
+  lib,
+  pkgs,
+  inputs,
+  ...
+}: let
   theme = inputs.elegant-grub-theme.packages.${pkgs.system}.elegant-grub-theme {
     config = {
       variant = "window";
@@ -12,9 +15,7 @@ let
       info = false;
     };
   };
-
-in
-{
+in {
   boot.loader.grub = {
     enable = true;
     device = "nodev";
@@ -38,5 +39,14 @@ in
     efiSysMountPoint = "/boot/efi";
   };
 
-  boot.blacklistedKernelModules = [ "elan_i2c" ];
+  boot.plymouth = {
+    enable = true;
+    themePackages = [
+      (pkgs.adi1090x-plymouth-themes.override {
+        selected_themes = ["black_hud" "circle_hud" "connect" "cuts_alt" "hexagon_hud" "splash"];
+      })
+    ];
+    theme = "splash";
+  };
+  boot.blacklistedKernelModules = ["elan_i2c"];
 }
