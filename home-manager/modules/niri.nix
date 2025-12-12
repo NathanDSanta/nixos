@@ -4,7 +4,6 @@
     spawn-at-startup = [{command = ["noctalia-shell"];}];
 
     input = {
-      focus-follows-mouse.enable = true;
       warp-mouse-to-focus.enable = true;
     };
 

@@ -24,14 +24,6 @@ in {
     gfxmodeEfi = "1920x1080";
     efiSupport = true;
     extraGrubInstallArgs = ["--bootloader-id=NixOS"];
-    extraEntries = ''
-      menuentry "Fedora (Bazzite)" --class fedora {
-        insmod part_gpt
-        insmod fat
-        search --no-floppy --fs-uuid --set=root E6BE-FCF0
-        chainloader /EFI/fedora/grubx64.efi
-      }
-    '';
   };
 
   boot.loader.efi = {
