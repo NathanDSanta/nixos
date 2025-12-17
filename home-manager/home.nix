@@ -29,6 +29,7 @@ in {
     swaybg
     swayidle
     pavucontrol
+    dosbox
   ];
 
   home.file = {

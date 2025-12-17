@@ -8,7 +8,23 @@
       qmlls.enable = true;
       cssls.enable = true;
       lua_ls.enable = true;
-      nixd.enable = true;
+      nixd = {
+        enable = true;
+        config = {
+          settings = {
+            nixd = {
+              options = {
+                nixos = {
+                  expr = "(builtins.getFlake (builtins.toString ~/.nixos/nixos)).nixosConfigurations.Nathan-NixOS.options";
+                };
+                home-manager = {
+                  expr = "(builtins.getFlake (builtins.toString ~/.nixos/home-manager)).homeConfigurations.NathanDSanta.options";
+                };
+              };
+            };
+          };
+        };
+      };
     };
 
     plugins = {
