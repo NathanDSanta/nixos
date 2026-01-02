@@ -9,6 +9,11 @@
     inputs.niri.nixosModules.niri
   ];
 
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [vpl-gpu-rt];
+  };
+
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   networking.hostName = "Nathan-NixOS";
@@ -44,6 +49,29 @@
     power-profiles-daemon.enable = true;
 
     upower.enable = true;
+
+    netbird.enable = true;
+
+    openssh = {
+      enable = true;
+      ports = [22];
+      settings = {
+        UseDns = true;
+        PasswordAuthentication = true;
+        PermitRootLogin = "no";
+      };
+    };
+  };
+
+  virtualisation.libvirtd.enable = true;
+  virtualisation.virtualbox.host.enable = true;
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-wlr
+      xdg-desktop-portal-gtk
+    ];
   };
 
   security.rtkit.enable = true;
@@ -52,7 +80,7 @@
   users.users.NathanDSanta = {
     isNormalUser = true;
     shell = pkgs.zsh;
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "wheel" "libvirtd" "vboxusers"];
   };
 
   programs = {
@@ -70,8 +98,8 @@
     systemPackages = with pkgs; [
       home-manager
       vim
+      xwayland-satellite
       nerd-fonts.jetbrains-mono
-      xdg-desktop-portal-gnome
     ];
 
     variables = {

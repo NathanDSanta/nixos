@@ -16,29 +16,32 @@
     };
   };
 in {
-  boot.loader.grub = {
-    enable = true;
-    device = "nodev";
-    useOSProber = true;
-    theme = lib.mkForce "${theme}/theme"; # Force so stylix does not try to overwrite
-    gfxmodeEfi = "1920x1080";
-    efiSupport = true;
-    extraGrubInstallArgs = ["--bootloader-id=NixOS"];
-  };
+  boot = {
+    kernelModules = ["kvm-intel"];
+    loader = {
+      grub = {
+        enable = true;
+        device = "nodev";
+        useOSProber = true;
+        theme = lib.mkForce "${theme}/theme"; # Force so stylix does not try to overwrite
+        gfxmodeEfi = "1920x1080";
+        efiSupport = true;
+        extraGrubInstallArgs = ["--bootloader-id=NixOS"];
+      };
+      efi = {
+        canTouchEfiVariables = true;
+        efiSysMountPoint = "/boot/efi";
+      };
+    };
 
-  boot.loader.efi = {
-    canTouchEfiVariables = true;
-    efiSysMountPoint = "/boot/efi";
+    plymouth = {
+      enable = true;
+      themePackages = [
+        (pkgs.adi1090x-plymouth-themes.override {
+          selected_themes = ["black_hud" "circle_hud" "connect" "cuts_alt" "hexagon_hud" "splash"];
+        })
+      ];
+      theme = "splash";
+    };
   };
-
-  boot.plymouth = {
-    enable = true;
-    themePackages = [
-      (pkgs.adi1090x-plymouth-themes.override {
-        selected_themes = ["black_hud" "circle_hud" "connect" "cuts_alt" "hexagon_hud" "splash"];
-      })
-    ];
-    theme = "splash";
-  };
-  boot.blacklistedKernelModules = ["elan_i2c"];
 }
