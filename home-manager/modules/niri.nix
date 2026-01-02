@@ -8,7 +8,7 @@
     };
 
     outputs = {
-      HDMI-A-1 = {
+      HDMI-A-5 = {
         enable = true;
         scale = 1.0;
         transform.rotation = 0;
@@ -21,7 +21,7 @@
           y = 0;
         };
       };
-      DP-3 = {
+      DP-5 = {
         enable = true;
         focus-at-startup = true;
         scale = 1.0;
@@ -61,6 +61,13 @@
       ];
       center-focused-column = "on-overflow";
     };
+
+    layer-rules = [
+      {
+        matches = [{namespace = "^wallpaper$";}];
+        place-within-backdrop = true;
+      }
+    ];
 
     hotkey-overlay = {
       hide-not-bound = true;
@@ -102,6 +109,7 @@
       "Mod+Shift+V".action = switch-focus-between-floating-and-tiling;
 
       "Mod+W".action = close-window;
+      "Mod+S".action = switch-preset-window-width;
 
       ## APPS ##
       "Mod+Return" = {

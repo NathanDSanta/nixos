@@ -25,11 +25,13 @@ in {
   home.packages = with pkgs; [
     fzf
     chromium
+    nodejs
     mako
     swaybg
     swayidle
     pavucontrol
     dosbox
+    virt-manager
   ];
 
   home.file = {
