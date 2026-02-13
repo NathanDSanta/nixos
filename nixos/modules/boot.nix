@@ -44,4 +44,8 @@ in {
       theme = "splash";
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    grub2
+  ];
 }
