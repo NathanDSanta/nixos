@@ -24,10 +24,16 @@
     };
   in {
     nixosConfigurations = {
-      Nathan-NixOS = inputs.nixpkgs.lib.nixosSystem {
+      Nathan-NixPC = inputs.nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs system;};
         modules = [
-          ./configuration.nix
+          ./pc/configuration.nix
+        ];
+      };
+      Nathan-NixLaptop = inputs.nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs system;};
+        modules = [
+          ./laptop/configuration.nix
         ];
       };
     };

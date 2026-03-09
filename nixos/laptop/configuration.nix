@@ -5,18 +5,13 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    ./modules/boot.nix
+    ./../modules/boot.nix
     inputs.niri.nixosModules.niri
   ];
 
-  hardware.graphics = {
-    enable = true;
-    extraPackages = with pkgs; [vpl-gpu-rt];
-  };
-
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
-  networking.hostName = "Nathan-NixOS";
+  networking.hostName = "Nathan-NixLaptop";
   networking.networkmanager.enable = true;
 
   time.timeZone = "Europe/Madrid";
@@ -103,7 +98,7 @@
     ];
 
     variables = {
-      NH_FLAKE = "/home/NathanDSanta/.nixos/nixos";
+      NH_FLAKE = "/home/NathanDSanta/.nixos/nixos/#Nathan-NixLaptop";
     };
   };
 
