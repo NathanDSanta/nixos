@@ -18,6 +18,7 @@
 in {
   boot = {
     kernelModules = ["kvm-intel"];
+    blacklistedKernelModules = ["elan_i2c"];
     loader = {
       grub = {
         enable = true;
