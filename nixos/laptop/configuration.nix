@@ -47,6 +47,11 @@
 
     netbird.enable = true;
 
+    mysql = {
+      enable = true;
+      package = pkgs.mariadb_118;
+    };
+
     openssh = {
       enable = true;
       ports = [22];

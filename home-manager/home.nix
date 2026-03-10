@@ -32,6 +32,8 @@ in {
     pavucontrol
     dosbox
     virt-manager
+    jetbrains.idea-ultimate
+    temurin-bin-21
   ];
 
   home.file = {
