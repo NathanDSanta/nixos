@@ -103,7 +103,7 @@
     ];
 
     variables = {
-      NH_FLAKE = "/home/NathanDSanta/.nixos/nixos/#Nathan-NixLaptop";
+      NH_FLAKE = "/home/NathanDSanta/.nixos/nixos/#nixosConfigurations.Nathan-NixLaptop";
     };
   };
 

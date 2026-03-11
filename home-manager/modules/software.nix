@@ -7,5 +7,6 @@
     jetbrains.idea-ultimate
     jetbrains.datagrip
     temurin-bin-21
+    android-studio-otter3
   ];
 }
