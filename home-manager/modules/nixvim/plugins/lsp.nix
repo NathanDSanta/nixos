@@ -71,7 +71,7 @@
             preset = "none";
             "<Up>" = ["select_prev" "fallback"];
             "<Down>" = ["select_next" "fallback"];
-            "<CR>" = ["accept" "fallback"];
+            "<Tab>" = ["accept" "fallback"];
           };
           cmdline = {
             enabled = true;
@@ -79,7 +79,7 @@
               preset = "cmdline";
               "<Up>" = ["select_prev" "fallback"];
               "<Down>" = ["select_next" "fallback"];
-              "<CR>" = ["accept_and_enter" "fallback"];
+              "<Tab>" = ["accept" "fallback"];
             };
           };
         };

@@ -32,6 +32,7 @@ in {
     pavucontrol
     dosbox
     virt-manager
+    obsidian
   ];
 
   home.file = {
@@ -41,6 +42,8 @@ in {
     NH_HOME_FLAKE = "/home/NathanDSanta/.nixos/home-manager/";
   };
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+
+  services.udiskie.enable = true;
 
   programs = {
     home-manager = {

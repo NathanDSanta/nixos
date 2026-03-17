@@ -7,6 +7,10 @@
       warp-mouse-to-focus.enable = true;
     };
 
+    gestures = {
+      hot-corners.enable = false;
+    };
+
     outputs = {
       HDMI-A-5 = {
         enable = true;
@@ -38,6 +42,7 @@
     };
 
     layout = {
+      background-color = "transparent";
       gaps = 15;
       struts = {
         left = 30;
@@ -64,10 +69,14 @@
 
     layer-rules = [
       {
-        matches = [{namespace = "^wallpaper$";}];
+        matches = [{namespace = "^noctalia-wallpaper";}];
         place-within-backdrop = true;
       }
     ];
+
+    overview = {
+      workspace-shadow.enable = false;
+    };
 
     hotkey-overlay = {
       hide-not-bound = true;
