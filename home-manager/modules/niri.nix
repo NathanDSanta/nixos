@@ -7,6 +7,10 @@
       warp-mouse-to-focus.enable = true;
     };
 
+    cursor = {
+      size = 32;
+    };
+
     gestures = {
       hot-corners.enable = false;
     };

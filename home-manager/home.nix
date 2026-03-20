@@ -30,7 +30,7 @@ in {
     swaybg
     swayidle
     pavucontrol
-    dosbox
+    gprolog
     virt-manager
     obsidian
   ];
@@ -46,8 +46,6 @@ in {
   services.udiskie.enable = true;
 
   programs = {
-    home-manager = {
-      enable = true;
-    };
+    home-manager.enable = true;
   };
 }
